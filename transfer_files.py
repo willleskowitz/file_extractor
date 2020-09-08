@@ -19,7 +19,7 @@ def get_input():
     extensions = extras.compile_extensions(wanted.split())
     print('\nSeleted extensions:\n<<< %s' % ' '.join(sorted(extensions)))
 
-    unwant_str = '''Extensions and/or categories from above you wish to avoid:
+    unwant_str = '''Extensions and/or categories from above to avoid:
 >>>'''
 
 
@@ -102,10 +102,8 @@ def transfer_files(source_dir, final_dir, extensions, action):
                 except PermissionError:
                     pass
 
-            i += 1
-            extras.progress_bar(i, source_len)
-        # i += len(files)
-        # extras.progress_bar(i, source_len)
+        i += len(files)
+        extras.progress_bar(i, source_len)
 
     return True
 
